@@ -25,8 +25,11 @@ System.out.println(div(n1,n2));
 }
 }
 ```
+
 <img width="349" height="73" alt="image" src="https://github.com/user-attachments/assets/dc45e89b-53e3-40ce-b14c-91e5bd25b2b7" />
+
 ## assi-2
+
 ```
 public class Add{
 public static void main(String[]args)
@@ -35,4 +38,6 @@ System.out.println("Hi");
 }
 }
 ```
+
 <img width="349" height="73" alt="image" src="https://github.com/user-attachments/assets/dd84586d-f80d-49c9-a114-d68bb2b52fe4" />
+
