@@ -1,3 +1,6 @@
+[Prgram-1 wap for arthmatic logic](#assi-1)
+[Prgram-2 wap for Hello World](#assi-2)
+## assi-1
 ```
 public class Cla{
 static int add(int a, int b){
@@ -23,7 +26,7 @@ System.out.println(div(n1,n2));
 }
 ```
 <img width="349" height="73" alt="image" src="https://github.com/user-attachments/assets/dc45e89b-53e3-40ce-b14c-91e5bd25b2b7" />
-
+## assi-2
 ```
 public class Add{
 public static void main(String[]args)
