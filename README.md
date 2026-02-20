@@ -32,3 +32,4 @@ System.out.println("Hi");
 }
 }
 ```
+<img width="349" height="73" alt="image" src="https://github.com/user-attachments/assets/dd84586d-f80d-49c9-a114-d68bb2b52fe4" />
