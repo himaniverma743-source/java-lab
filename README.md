@@ -1,8 +1,41 @@
 [Prgram-1 wap for arthmatic logic](#assi-1)
 
 [Prgram-2 wap for Hello World](#assi-2)
+
+[Program-3 wap for the addition of two distances where each distance is given in meter, cm](#assi-3)
+
+[program-4 wap for the addition of two times where each time is given in hours, minutes](#assi-4)
+
+[program-5 wap for the addition of two times where each time is given in hours, minutes and seconds](#assi-5)
+
+[program-6 wap for the addition of two distance where each distance is given in meter, centi-meter and millimeter](#assi-6)
+
+[program-7 wap using object and classes to do the reverse of 1d array](#assi-7)
+
+[program-8 wap for transpose of matrix 3*3](#assi-8)
+
+[program-9 wap for sum of matrix](#assi-9)
+
+[program-10 wap for multiply of matrix](#assi-10)
+
+[program-11 wap for sum of rows of matrix](#assi-11)
+
+[program-12 wap for sum of columns of matrix](#assi-12)
+
+[program-13 wap for sum of diagonals of matrix](#assi-13)
+
+[program-14 wap for factorial of numbers](#assi-14)
+
+[program-15 wap for fabannoic series](#assi-15)
+
+[program-16 wap for palendrome numbers](#assi-16)
+
+[program-17 wap for armstrong numbers](#assi-17)
+
+[program-18 wap for
 ## assi-1
 ```
+
 public class Cla{
 static int add(int a, int b){
 return a+b;
