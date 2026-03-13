@@ -75,3 +75,36 @@ System.out.println("Hi");
 
 <img width="349" height="73" alt="image" src="https://github.com/user-attachments/assets/dd84586d-f80d-49c9-a114-d68bb2b52fe4" />
 
+## assi-3
+
+```
+import java.util.Scanner;
+
+public class DistanceAddition {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int m1, cm1, m2, cm2;
+        int meter, cm;
+
+        System.out.println("Enter first distance (meter and centimeter): ");
+        m1 = sc.nextInt();
+        cm1 = sc.nextInt();
+
+        System.out.println("Enter second distance (meter and centimeter): ");
+        m2 = sc.nextInt();
+        cm2 = sc.nextInt();
+
+        meter = m1 + m2;
+        cm = cm1 + cm2;
+
+        if (cm >= 100) {
+            meter = meter + (cm / 100);
+            cm = cm % 100;
+        }
+
+        System.out.println("Sum of distances = " + meter + " meter " + cm + " centimeter");
+    }
+}
+
+```
