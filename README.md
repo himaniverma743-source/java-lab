@@ -151,5 +151,6 @@ class Time {
 }
 
 ```
+<img width="523" height="97" alt="Screenshot 2026-03-18 184224" src="https://github.com/user-attachments/assets/c82c8e25-3793-46d5-94ba-e67a56e2ce5d" />
 
 
