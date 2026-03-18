@@ -108,3 +108,48 @@ public class DistanceAddition {
 }
 
 ```
+##assi-4
+
+```
+
+import java.util.Scanner;
+
+class Time {
+    int hours, minutes;
+
+    void addTime(int h1, int m1, int h2, int m2) {
+        hours = h1 + h2;
+        minutes = m1 + m2;
+
+        if (minutes >= 60) {
+            hours = hours + minutes / 60;
+            minutes = minutes % 60;
+        }
+    }
+
+    void display() {
+        System.out.println("Total Time = " + hours + " hours " + minutes + " minutes");
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        int h1, m1, h2, m2;
+
+        System.out.print("Enter first time (hours minutes): ");
+        h1 = sc.nextInt();
+        m1 = sc.nextInt();
+
+        System.out.print("Enter second time (hours minutes): ");
+        h2 = sc.nextInt();
+        m2 = sc.nextInt();
+
+        Time t = new Time();   // object creation
+        t.addTime(h1, m1, h2, m2);
+        t.display();
+    }
+}
+
+```
+
+
