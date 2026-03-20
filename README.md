@@ -246,4 +246,347 @@ class Distance {
 ```
 <img width="778" height="98" alt="Screenshot 2026-03-18 185524" src="https://github.com/user-attachments/assets/6fdc1515-1c6d-4f30-923e-d556b09e45c3" />
 
+##assi-7
+
+```
+
+// Main class
+public class MainClass {
+    public static void main(String[] args) {
+
+        ArrayOperations obj = new ArrayOperations();
+
+        System.out.println("Original Array:");
+        obj.displayArray();
+
+        obj.reverseArray();
+
+        System.out.println("Reversed Array:");
+        obj.displayArray();
+    }
+}
+
+// Class containing all functions
+class ArrayOperations {
+
+    int[] arr = {10, 20, 30, 40, 50};  // predefined array
+
+    // Method to reverse array
+    void reverseArray() {
+        int start = 0, end = arr.length - 1;
+
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
+    }
+
+    // Method to display array
+    void displayArray() {
+        for(int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
+
+```
+
+<img width="208" height="127" alt="Screenshot 2026-03-20 194325" src="https://github.com/user-attachments/assets/7b3b744b-c282-4d09-bcc4-9e520c873e88" />
+
+##assi-8
+
+```
+public class MatrixOperations {
+
+    int[][] A = {
+        {1,2,3},
+        {4,5,6},
+        {7,8,9}
+    };
+
+    int[][] B = {
+        {9,8,7},
+        {6,5,4},
+        {3,2,1}
+    };
+
+    void display(int[][] M){
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                System.out.print(M[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    void transpose(){
+        int[][] T = new int[3][3];
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                T[j][i] = A[i][j];
+            }
+        }
+
+        System.out.println("Transpose of Matrix A:");
+        display(T);
+    }
+
+    void sum(){
+        int[][] S = new int[3][3];
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                S[i][j] = A[i][j] + B[i][j];
+            }
+        }
+
+        System.out.println("Sum of A and B:");
+        display(S);
+    }
+
+    void multiply(){
+        int[][] M = new int[3][3];
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                for(int k=0;k<3;k++){
+                    M[i][j] += A[i][k]*B[k][j];
+                }
+            }
+        }
+
+        System.out.println("Multiplication of A and B:");
+        display(M);
+    }
+
+    void rowSum(){
+        for(int i=0;i<3;i++){
+            int sum=0;
+            for(int j=0;j<3;j++){
+                sum += A[i][j];
+            }
+            System.out.println("Row "+(i+1)+" Sum = "+sum);
+        }
+    }
+
+    void columnSum(){
+        for(int j=0;j<3;j++){
+            int sum=0;
+            for(int i=0;i<3;i++){
+                sum += A[i][j];
+            }
+            System.out.println("Column "+(j+1)+" Sum = "+sum);
+        }
+    }
+
+    void diagonalSum(){
+        int p=0,s=0;
+
+        for(int i=0;i<3;i++){
+            p += A[i][i];
+            s += A[i][2-i];
+        }
+
+        System.out.println("Primary Diagonal Sum = "+p);
+        System.out.println("Secondary Diagonal Sum = "+s);
+    }
+
+    public static void main(String[] args){
+
+        MatrixOperations obj = new MatrixOperations();
+
+        System.out.println("Matrix A:");
+        obj.display(obj.A);
+
+        System.out.println("Matrix B:");
+        obj.display(obj.B);
+
+        obj.transpose();
+        obj.sum();
+        obj.multiply();
+        obj.rowSum();
+        obj.columnSum();
+        obj.diagonalSum();
+    }
+}
+
+```
+
+<img width="302" height="742" alt="Screenshot 2026-03-20 195216" src="https://github.com/user-attachments/assets/5317538a-3903-48f8-a7a0-d75f3dbcc836" />
+
+##assi-9
+
+```
+
+public class NumberOperations {
+
+    int num = 5;     // for factorial & fibonacci
+    int pal = 121;   // for palindrome
+    int arm = 153;   // for armstrong
+
+    // 1. Factorial
+    void factorial() {
+        int fact = 1;
+
+        for (int i = 1; i <= num; i++) {
+            fact *= i;
+        }
+
+        System.out.println("Factorial of " + num + " = " + fact);
+    }
+
+    // 2. Fibonacci Series
+    void fibonacci() {
+        int a = 0, b = 1;
+
+        System.out.println("Fibonacci series:");
+
+        for (int i = 1; i <= num; i++) {
+            System.out.print(a + " ");
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+
+        System.out.println();
+    }
+
+    // 3. Palindrome Number
+    void palindrome() {
+        int temp = pal;
+        int rev = 0;
+
+        while (temp > 0) {
+            int digit = temp % 10;
+            rev = rev * 10 + digit;
+            temp /= 10;
+        }
+
+        if (pal == rev)
+            System.out.println(pal + " is Palindrome");
+        else
+            System.out.println(pal + " is Not Palindrome");
+    }
+
+    // 4. Armstrong Number
+    void armstrong() {
+        int temp = arm;
+        int sum = 0;
+
+        while (temp > 0) {
+            int digit = temp % 10;
+            sum += digit * digit * digit;
+            temp /= 10;
+        }
+
+        if (sum == arm)
+            System.out.println(arm + " is Armstrong");
+        else
+            System.out.println(arm + " is Not Armstrong");
+    }
+
+    // 5. Pattern
+    void pattern() {
+        System.out.println("Pattern:");
+
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+
+        NumberOperations obj = new NumberOperations();
+
+        obj.factorial();
+        obj.fibonacci();
+        obj.palindrome();
+        obj.armstrong();
+        obj.pattern();
+    }
+}
+
+```
+
+<img width="214" height="281" alt="Screenshot 2026-03-20 195911" src="https://github.com/user-attachments/assets/e6a5c3e9-bf2a-4475-9b37-ce540eaf47a2" />
+
+##assi-10
+
+```
+
+// Base class
+public class A {
+
+    void showA() {
+        System.out.println("Class A (Parent)");
+    }
+
+    public static void main(String[] args) {
+
+        // Single Inheritance
+        System.out.println("Single Inheritance:");
+        B obj1 = new B();
+        obj1.showA();
+        obj1.showB();
+
+        // Multilevel Inheritance
+        System.out.println("\nMultilevel Inheritance:");
+        C obj2 = new C();
+        obj2.showA();
+        obj2.showB();
+        obj2.showC();
+
+        // Hierarchical Inheritance
+        System.out.println("\nHierarchical Inheritance:");
+        D obj3 = new D();
+        E obj4 = new E();
+
+        obj3.showA();
+        obj3.showD();
+
+        obj4.showA();
+        obj4.showE();
+    }
+}
+
+// Single Inheritance
+class B extends A {
+    void showB() {
+        System.out.println("Class B (Child of A)");
+    }
+}
+
+// Multilevel Inheritance
+class C extends B {
+    void showC() {
+        System.out.println("Class C (Child of B)");
+    }
+}
+
+// Hierarchical Inheritance
+class D extends A {
+    void showD() {
+        System.out.println("Class D (Another Child of A)");
+    }
+}
+
+class E extends A {
+    void showE() {
+        System.out.println("Class E (Another Child of A)");
+    }
+}
+
+```
+
+<img width="297" height="373" alt="Screenshot 2026-03-20 200413" src="https://github.com/user-attachments/assets/22ca8314-1232-4743-a0af-3fce7bed8bb4" />
 
