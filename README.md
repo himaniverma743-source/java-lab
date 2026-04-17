@@ -19,6 +19,35 @@
 
 [Program-10 Demonstrate all 3 types of inheritance 1. Single, 2, Multilevel 3. Hierarchial](#assi-10)
 
+[Program-11 Write a program using three classes to print 1-100 ,1-100,1-100 with and without thread and analyse the output and repeat the same program using runnable interface](#assi-11)
+
+[Program=12  Using the concept of multithreading the output of all three threads must be synchronised (use join method](#assi-12)
+
+[Program-13 Addition of 2 numbers using swing](#assi-13)
+
+[Program-14  Make a registration form with 10 elements and send the data into database (use jdbc connectivity](#assi-14)
+
+[Program-15  Make one calculator in swing](#assi-15)
+
+[Program-16  Matrix Addition using swing class](#assi-16)
+
+[Program-17 Create one jframe apply 10 buttons on that after clicking on each button a new
+structure is created.(Circle, oval rectangle, etc ....](#assi-17)
+
+[Program-18  Just using mouse Event create a frame like paint brush with selection of colour and width](#assi-18)
+
+[Program-19 Create a package of any 5 classes of your choice and import it](#assi-19)
+
+[Program-20 Create one package and sub package  import and test it](#assi-20)
+
+[Program-21   Create one small array of size 5 apply array out of bounds exception using try catch give a proper message in catch and demonstrate the exception exactly in the same fashion demonstrate arithmetic exception](#assi-21)
+
+[Program-22 To test the range of age of one student.write a program using user defined exception](#assi-22)
+
+[Program-23  File Handling Programs](#assi-23)
+
+[Program-24   Inheritance Programs, using interface and abstract classes](#assi-24)
+
 
 ## assi-1
 ```
