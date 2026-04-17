@@ -617,5 +617,171 @@ class E extends A {
 
 ```
 
-<img width="297" height="373" alt="Screenshot 2026-03-20 200413" src="https://github.com/user-attachments/assets/22ca8314-1232-4743-a0af-3fce7bed8bb4" />
+<img width="297" height="373" alt="Screenshot 2026-03-20 200413" src="https://github.com/user-attachments/assets/22ca8314-1232-4743-a0af-3fce7bed8bb4" /> 
+
+##assi-11
+
+```
+
+class A extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("A (Thread): " + i);
+        }
+    }
+
+    void print() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("A (Normal): " + i);
+        }
+    }
+}
+
+class B extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("B (Thread): " + i);
+        }
+    }
+
+    void print() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("B (Normal): " + i);
+        }
+    }
+}
+
+class C extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("C (Thread): " + i);
+        }
+    }
+
+    void print() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("C (Normal): " + i);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        A a = new A();
+        B b = new B();
+        C c = new C();
+
+        // 🔹 Without Thread (Sequential)
+        System.out.println("----- WITHOUT THREAD -----");
+        a.print();
+        b.print();
+        c.print();
+
+        // 🔹 With Thread (Concurrent)
+        System.out.println("----- WITH THREAD -----");
+        a.start();
+        b.start();
+        c.start();
+    }
+}
+
+```
+
+<img width="190" height="879" alt="image" src="https://github.com/user-attachments/assets/b1c26b8a-0f15-4df4-9037-1ae81ee8f02e" />
+<img width="119" height="811" alt="image" src="https://github.com/user-attachments/assets/639baa6a-965a-44de-b941-1e052d0ecc83" />
+<img width="142" height="834" alt="image" src="https://github.com/user-attachments/assets/48aed606-7cd7-4024-8afa-26c331f58ee5" />
+<img width="121" height="850" alt="image" src="https://github.com/user-attachments/assets/e71cf2df-2dce-4c2b-814f-cf5a1fcc2c35" />
+
+#assi-12
+
+```
+
+class A extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("A: " + i);
+        }
+    }
+}
+
+class B extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("B: " + i);
+        }
+    }
+}
+
+class C extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("C: " + i);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        A a = new A();
+        B b = new B();
+        C c = new C();
+
+        try {
+            a.start();
+            a.join();   // wait until A finishes
+
+            b.start();
+            b.join();   // wait until B finishes
+
+            c.start();
+            c.join();   // wait until C finishes
+
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+```
+
+<img width="79" height="881" alt="image" src="https://github.com/user-attachments/assets/4f3c0465-28b4-4580-a6f6-bf527b01cdbf" />
+<img width="100" height="880" alt="image" src="https://github.com/user-attachments/assets/70ad4364-d6a3-4302-b2ba-1799401a5681" />
+<img width="71" height="895" alt="image" src="https://github.com/user-attachments/assets/fcf608f0-f418-4b2f-9ea1-932aa576c3a1" />
+<img width="47" height="886" alt="image" src="https://github.com/user-attachments/assets/93aecbe0-8e05-4290-9f1b-8b1c1803e9e1" />
+<img width="49" height="881" alt="image" src="https://github.com/user-attachments/assets/53afca08-a9df-474b-b6c5-7a8d27aa5235" />
+<img width="64" height="557" alt="image" src="https://github.com/user-attachments/assets/79e0774c-4ec6-48f2-9694-37abef39e217" />
+
+#assi-13
+
+```
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        int sum = a + b;
+
+        System.out.println("Result: " + sum);
+    }
+}
+
+```
+
+<img width="239" height="83" alt="image" src="https://github.com/user-attachments/assets/5228854d-4cb0-4643-9a2c-f0c182fd6c4f" />
+
+##assi-14
+
+```
+
+
+
 
