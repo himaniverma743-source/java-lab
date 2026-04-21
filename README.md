@@ -782,6 +782,291 @@ public class Main {
 
 ```
 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // 🔹 Taking 10 inputs (Registration Form)
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Email: ");
+        String email = sc.nextLine();
+
+        System.out.print("Enter Password: ");
+        String password = sc.nextLine();
+
+        System.out.print("Enter Gender: ");
+        String gender = sc.nextLine();
+
+        System.out.print("Enter Course: ");
+        String course = sc.nextLine();
+
+        System.out.print("Enter Address: ");
+        String address = sc.nextLine();
+
+        System.out.print("Enter Phone: ");
+        String phone = sc.nextLine();
+
+        System.out.print("Enter Age: ");
+        String age = sc.nextLine();
+
+        System.out.print("Enter City: ");
+        String city = sc.nextLine();
+
+        System.out.print("Enter State: ");
+        String state = sc.nextLine();
+
+        // 🔹 Display Data (Simulating Database Storage)
+        System.out.println("\n--- Registration Data ---");
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+        System.out.println("Password: " + password);
+        System.out.println("Gender: " + gender);
+        System.out.println("Course: " + course);
+        System.out.println("Address: " + address);
+        System.out.println("Phone: " + phone);
+        System.out.println("Age: " + age);
+        System.out.println("City: " + city);
+        System.out.println("State: " + state);
+
+        System.out.println("\nData Stored Successfully (Simulated)");
+    }
+}
+
+```
+
+<img width="377" height="696" alt="image" src="https://github.com/user-attachments/assets/356e7b9d-cec1-43c9-b781-44e2a13a0352" />
+
+##assi-15
+
+```
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame("Calculator");
+
+        // Text fields
+        JTextField t1 = new JTextField();
+        JTextField t2 = new JTextField();
+        JTextField result = new JTextField();
+
+        // Buttons
+        JButton add = new JButton("+");
+        JButton sub = new JButton("-");
+        JButton mul = new JButton("*");
+        JButton div = new JButton("/");
+
+        // Set positions
+        t1.setBounds(50, 50, 150, 30);
+        t2.setBounds(50, 100, 150, 30);
+        result.setBounds(50, 150, 150, 30);
+
+        add.setBounds(220, 50, 50, 30);
+        sub.setBounds(280, 50, 50, 30);
+        mul.setBounds(220, 100, 50, 30);
+        div.setBounds(280, 100, 50, 30);
+
+        // Action logic
+        ActionListener al = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int a = Integer.parseInt(t1.getText());
+                    int b = Integer.parseInt(t2.getText());
+                    int res = 0;
+
+                    if (e.getSource() == add) res = a + b;
+                    if (e.getSource() == sub) res = a - b;
+                    if (e.getSource() == mul) res = a * b;
+                    if (e.getSource() == div) res = a / b;
+
+                    result.setText(String.valueOf(res));
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(f, "Invalid Input");
+                }
+            }
+        };
+
+        // Add listeners
+        add.addActionListener(al);
+        sub.addActionListener(al);
+        mul.addActionListener(al);
+        div.addActionListener(al);
+
+        // Add components
+        f.add(t1); f.add(t2); f.add(result);
+        f.add(add); f.add(sub); f.add(mul); f.add(div);
+
+        // Frame settings
+        f.setSize(400, 300);
+        f.setLayout(null);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+
+```
+
+<img width="724" height="562" alt="image" src="https://github.com/user-attachments/assets/2ffa3921-7985-4af4-88d8-19933d3ce32a" />
+
+##assi-16
+
+```
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[][] A = new int[2][2];
+        int[][] B = new int[2][2];
+        int[][] C = new int[2][2];
+
+        System.out.println("Enter Matrix A:");
+        for(int i=0;i<2;i++){
+            for(int j=0;j<2;j++){
+                A[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("Enter Matrix B:");
+        for(int i=0;i<2;i++){
+            for(int j=0;j<2;j++){
+                B[i][j] = sc.nextInt();
+            }
+        }
+
+        // Addition
+        for(int i=0;i<2;i++){
+            for(int j=0;j<2;j++){
+                C[i][j] = A[i][j] + B[i][j];
+            }
+        }
+
+        System.out.println("Result Matrix:");
+        for(int i=0;i<2;i++){
+            for(int j=0;j<2;j++){
+                System.out.print(C[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+```
+
+<img width="177" height="240" alt="image" src="https://github.com/user-attachments/assets/abe425cb-b1ac-4da6-a93f-26bff1bc3d35" />
+
+##assi-17
+
+```
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class DrawPanel extends JPanel {
+    String shape = "";
+
+    public void setShape(String s) {
+        shape = s;
+        repaint();
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        if (shape.equals("Circle"))
+            g.drawOval(150, 100, 100, 100);
+
+        if (shape.equals("Oval"))
+            g.drawOval(120, 100, 150, 80);
+
+        if (shape.equals("Rectangle"))
+            g.drawRect(120, 100, 150, 80);
+
+        if (shape.equals("Square"))
+            g.drawRect(150, 100, 100, 100);
+
+        if (shape.equals("Line"))
+            g.drawLine(100, 100, 250, 200);
+
+        if (shape.equals("Triangle")) {
+            int x[] = {150, 200, 250};
+            int y[] = {200, 100, 200};
+            g.drawPolygon(x, y, 3);
+        }
+
+        if (shape.equals("Arc"))
+            g.drawArc(120, 100, 150, 100, 0, 180);
+
+        if (shape.equals("RoundRect"))
+            g.drawRoundRect(120, 100, 150, 80, 30, 30);
+
+        if (shape.equals("Filled Circle"))
+            g.fillOval(150, 100, 100, 100);
+
+        if (shape.equals("Filled Rect"))
+            g.fillRect(120, 100, 150, 80);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame("Shapes using Buttons");
+        f.setSize(500, 400);
+        f.setLayout(null);
+
+        DrawPanel panel = new DrawPanel();
+        panel.setBounds(0, 100, 500, 300);
+
+        String names[] = {
+            "Circle", "Oval", "Rectangle", "Square", "Line",
+            "Triangle", "Arc", "RoundRect", "Filled Circle", "Filled Rect"
+        };
+
+        int x = 10;
+
+        for (int i = 0; i < 10; i++) {
+            JButton btn = new JButton(names[i]);
+            btn.setBounds(x, 10, 120, 30);
+            x += 125;
+
+            btn.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    panel.setShape(((JButton)e.getSource()).getText());
+                }
+            });
+
+            f.add(btn);
+        }
+
+        f.add(panel);
+
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+
+```
+
+<img width="625" height="614" alt="image" src="https://github.com/user-attachments/assets/0ea85cb3-0514-463a-aa43-483120b9fa6d" />
+
+##assi-18
+
+```
+
+
 
 
 
