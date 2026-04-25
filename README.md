@@ -1066,7 +1066,366 @@ public class Main {
 
 ```
 
+import java.awt.*;
+import java.awt.event.*;
+
+public class PaintBrush extends Frame implements MouseListener, MouseMotionListener, ItemListener
+{
+    Choice colorChoice;
+    Choice widthChoice;
+
+    int x, y;
+    Color currentColor = Color.BLACK;
+    int brushSize = 5;
+
+    public PaintBrush()
+    {
+        setTitle("Simple Paint Brush");
+        setSize(600,500);
+        setLayout(new FlowLayout());
+
+        // Color Selection
+        add(new Label("Select Color:"));
+        colorChoice = new Choice();
+        colorChoice.add("Black");
+        colorChoice.add("Red");
+        colorChoice.add("Blue");
+        colorChoice.add("Green");
+        add(colorChoice);
+
+        // Width Selection
+        add(new Label("Brush Width:"));
+        widthChoice = new Choice();
+        widthChoice.add("5");
+        widthChoice.add("10");
+        widthChoice.add("15");
+        widthChoice.add("20");
+        add(widthChoice);
+
+        colorChoice.addItemListener(this);
+        widthChoice.addItemListener(this);
+
+        addMouseListener(this);
+        addMouseMotionListener(this);
+
+        // Closing Window
+        addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent we){
+                System.exit(0);
+            }
+        });
+
+        setVisible(true);
+    }
+
+    public void itemStateChanged(ItemEvent e)
+    {
+        if(colorChoice.getSelectedItem().equals("Black"))
+            currentColor = Color.BLACK;
+        if(colorChoice.getSelectedItem().equals("Red"))
+            currentColor = Color.RED;
+        if(colorChoice.getSelectedItem().equals("Blue"))
+            currentColor = Color.BLUE;
+        if(colorChoice.getSelectedItem().equals("Green"))
+            currentColor = Color.GREEN;
+
+        brushSize = Integer.parseInt(widthChoice.getSelectedItem());
+    }
+
+    public void mousePressed(MouseEvent e)
+    {
+        x = e.getX();
+        y = e.getY();
+    }
+
+    public void mouseDragged(MouseEvent e)
+    {
+        Graphics g = getGraphics();
+        g.setColor(currentColor);
+        g.fillOval(e.getX(), e.getY(), brushSize, brushSize);
+
+        x = e.getX();
+        y = e.getY();
+    }
+
+    // Required empty methods
+    public void mouseClicked(MouseEvent e){}
+    public void mouseReleased(MouseEvent e){}
+    public void mouseEntered(MouseEvent e){}
+    public void mouseExited(MouseEvent e){}
+    public void mouseMoved(MouseEvent e){}
+
+    public static void main(String args[])
+    {
+        new PaintBrush();
+    }
+}
+
+```
+
+<img width="685" height="366" alt="image" src="https://github.com/user-attachments/assets/7dc765eb-6539-4731-bd36-c67a898c7c1a" />
+
+##assi-19
+
+```
+
+class Add {
+    void sum(int a, int b) {
+        System.out.println("Sum = " + (a+b));
+    }
+}
+
+class Subtract {
+    void sub(int a, int b) {
+        System.out.println("Difference = " + (a-b));
+    }
+}
+
+class Multiply {
+    void mul(int a, int b) {
+        System.out.println("Product = " + (a*b));
+    }
+}
+
+class Divide {
+    void div(int a, int b) {
+        System.out.println("Quotient = " + (a/b));
+    }
+}
+
+class Modulus {
+    void mod(int a, int b) {
+        System.out.println("Remainder = " + (a%b));
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+
+        Add a = new Add();
+        Subtract s = new Subtract();
+        Multiply m = new Multiply();
+        Divide d = new Divide();
+        Modulus mo = new Modulus();
+
+        a.sum(20,10);
+        s.sub(20,10);
+        m.mul(20,10);
+        d.div(20,10);
+        mo.mod(20,10);
+    }
+}
+
+```
+
+<img width="168" height="142" alt="image" src="https://github.com/user-attachments/assets/d88561b3-d8bf-46b0-8220-f0a2c950a4bf" />
+
+##assi-20
+
+```
+
+public class PackageDemo
+{
+    // Simulating package mypack
+    static class Addition
+    {
+        void add(int a, int b)
+        {
+            System.out.println("Sum = " + (a+b));
+        }
+    }
+
+    // Simulating subpackage mypack.subpack
+    static class Multiply
+    {
+        void mul(int a, int b)
+        {
+            System.out.println("Product = " + (a*b));
+        }
+    }
+
+    public static void main(String args[])
+    {
+        Addition obj1 = new Addition();
+        Multiply obj2 = new Multiply();
+
+        obj1.add(10,5);
+        obj2.mul(10,5);
+    }
+}
+
+```
+
+<img width="144" height="61" alt="image" src="https://github.com/user-attachments/assets/a3ca9cef-aa3c-4ff5-a52b-f0b03802563d" />
+
+##assi-21
+
+```
+
+public class ExceptionDemo
+{
+    public static void main(String args[])
+    {
+        // Array Out of Bounds Exception
+        try
+        {
+            int arr[] = {10,20,30,40,50};
+
+            System.out.println("Array Elements:");
+            for(int i=0;i<=5;i++) // causes exception
+            {
+                System.out.println(arr[i]);
+            }
+        }
+
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("Error: Array index is out of bounds!");
+        }
 
 
+        // Arithmetic Exception
+        try
+        {
+            int a=10, b=0;
+            int c=a/b; // causes exception
+
+            System.out.println("Result = " + c);
+        }
+
+        catch(ArithmeticException e)
+        {
+            System.out.println("Error: Division by zero is not allowed!");
+        }
+    }
+}
+
+```
+
+<img width="402" height="240" alt="image" src="https://github.com/user-attachments/assets/5f46278c-be3d-4f41-b0a4-47bcd271e5c4" />
+
+ ##assi-22
+
+ ```
+
+import java.util.Scanner;
+
+class InvalidAgeException extends Exception
+{
+    InvalidAgeException(String msg)
+    {
+        super(msg);
+    }
+}
+
+public class StudentAgeTest
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        try
+        {
+            System.out.print("Enter student age: ");
+            int age = sc.nextInt();
+
+            if(age < 18 || age > 25)
+            {
+                throw new InvalidAgeException("Age must be between 18 and 25");
+            }
+
+            System.out.println("Valid Student Age");
+        }
+
+        catch(InvalidAgeException e)
+        {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}
+
+```
+
+<img width="491" height="66" alt="image" src="https://github.com/user-attachments/assets/4810f4c0-9c17-4924-9af7-04b0ae7ffbd2" />
+
+##assi-23
+
+```
+
+import java.io.*;
+
+public class FileHandlingDemo
+{
+    public static void main(String args[]) throws Exception
+    {
+        // Writing into file
+        FileWriter fw = new FileWriter("data.txt");
+        fw.write("Hello Java");
+        fw.close();
+
+        // Character by Character Reading
+        System.out.println("Character by Character:");
+        FileReader fr = new FileReader("data.txt");
+
+        int ch;
+        while((ch = fr.read()) != -1)
+        {
+            System.out.print((char)ch);
+        }
+        fr.close();
+
+        System.out.println();
+
+        // Byte by Byte Reading
+        System.out.println("Byte by Byte:");
+        FileInputStream fin = new FileInputStream("data.txt");
+
+        int b;
+        while((b = fin.read()) != -1)
+        {
+            System.out.print((char)b);
+        }
+        fin.close();
+    }
+}
+
+```
+
+<img width="275" height="162" alt="image" src="https://github.com/user-attachments/assets/5e6d109c-27c3-4e0e-b312-35fbaa81d65b" />
+
+##assi-24
+
+```
+
+class Animal
+{
+    void sound()
+    {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal
+{
+    void bark()
+    {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main
+{
+    public static void main(String args[])
+    {
+        Dog d = new Dog();
+
+        d.sound();
+        d.bark();
+    }
+}
+
+```
+
+<img width="256" height="92" alt="image" src="https://github.com/user-attachments/assets/b9fb38e6-fbb9-45e2-8d7b-2473e8f89177" />
 
 
